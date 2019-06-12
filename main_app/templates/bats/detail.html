@@ -13,6 +13,11 @@
     {% else %}
       <p>Age: Yougin</p>
     {% endif %}
+    <div class="card-action">
+        <a href="{% url 'bats_update' bat.id %}">Edit</a>
+        <a href="{% url 'bats_delete' bat.id %}">Delete</a>
+    </div>
+    </div>
   </div>
 </div>
 

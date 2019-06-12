@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class Bat(models.Model):
@@ -9,3 +10,6 @@ class Bat(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'bat_id': self.id})

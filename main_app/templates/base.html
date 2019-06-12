@@ -17,8 +17,9 @@
                     <li><a href="/" class="left brand-logo">&nbsp;&nbsp;BatCollector</a></li>
                 </ul>
                 <ul class="right">
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/bats">View All My Bats</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'bats_create' %}">Add A Bat</a></li>
+                    <li><a href="{% url 'index' %}">View All My Bats</a></li>
                 </ul>
             </div>
         </nav>
