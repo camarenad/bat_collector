@@ -2,6 +2,7 @@ from django.shortcuts import render
 # Add the following import
 from django.http import HttpResponse
 from .models import Bat
+from .forms import FeedingForm
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 # Define the home view
@@ -18,7 +19,11 @@ def bats_index(request):
 
 def bats_detail(request, bat_id):
   bat = Bat.objects.get(id=bat_id)
-  return render(request, 'bats/detail.html', { 'bat': bat })
+  feeding_form = FeedingForm()
+  return render(request, 'bats/detail.html', {
+    'bat': bat, 'feeding_form': feeding_form
+  })
+
 
 class BatCreate(CreateView):
   model = Bat
