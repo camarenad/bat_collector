@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 # Add the following import
 from django.http import HttpResponse
 from .models import Bat
@@ -37,4 +37,13 @@ class BatUpdate(UpdateView):
 class BatDelete(DeleteView):
   model = Bat
   success_url = '/bats/'
+
+def add_feeding(request,bat_id):
+  form = FeedingForm(request.POST)
+  if form.is_valid():
+    new_feeding = form.save(commit=False)
+    new_feeding.bat_id = bat_id
+    new_feeding.save()
+
+  return redirect('detail', bat_id=bat_id)
 
